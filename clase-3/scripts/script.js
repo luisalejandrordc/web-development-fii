@@ -7,7 +7,7 @@ const PRODUCTS = [
     id: 1,
     name: "Notebook HP 15, 8GB RAM, 256GB SSD",
     price: 51999,
-    category: "Celulares",
+    category: "Computación",
     img: "https://rimage.ripley.com.pe/home.ripley/Attachment/WOP/1/2004306270608/full_image-2004306270608.jpg",
   },
   {
