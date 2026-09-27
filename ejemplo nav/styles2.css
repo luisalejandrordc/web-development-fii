@@ -1,0 +1,260 @@
+/* Configuración General */
+* {
+  margin: 0;                /* Elimina los márgenes externos que los navegadores ponen por defecto */
+  padding: 0;               /* Elimina el espacio interno que los navegadores ponen por defecto */
+  box-sizing: border-box;   /* Hace que el tamaño total del elemento incluya el padding y el borde, evitando que se deforme */
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Define la tipografía de la página; usa las siguientes si la primera no existe */
+  background-color: #f4f6f9; /* Aplica un color gris claro muy suave de fondo para descansar la vista */
+  color: #333;               /* Establece un color gris oscuro casi negro para todo el texto principal */
+  line-height: 1.6;          /* Ajusta la separación o espacio vertical entre líneas de texto para mejorar la lectura */
+}
+
+/* Encabezado */
+.main-header {
+  background-color: #003366; /* Aplica el color azul oscuro académico al fondo del encabezado */
+  color: white;              /* Hace que todos los textos dentro del encabezado sean de color blanco */
+  padding: 20px;             /* Añade 20 píxeles de espacio interno alrededor de todo el contenido del encabezado */
+}
+
+.header-top {
+  display: flex;             /* Activa el modo de caja flexible para alinear sus elementos hijos en una fila */
+  justify-content: space-between; /* Empuja el texto a la izquierda y el enlace de Facebook a la derecha, dejando espacio al centro */
+  font-size: 0.85rem;        /* Reduce un poco el tamaño de la letra para esta barra superior secundaria */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2); /* Dibuja una línea divisoria blanca muy delgada y semitransparente abajo */
+  padding-bottom: 10px;      /* Añade espacio entre el texto y la línea blanca que acabamos de crear */
+  margin-bottom: 15px;       /* Añade una separación externa abajo para alejarse del título principal (FII) */
+}
+
+.fb-link {
+  color: #3b5998;            /* Pone el texto del enlace de color azul característico de Facebook */
+  background: white;         /* Coloca un fondo blanco detrás del texto para que parezca un botón o etiqueta */
+  padding: 2px 8px;          /* Añade 2px de espacio arriba/abajo y 8px a los lados para darle forma al fondo */
+  border-radius: 4px;        /* Redondea sutilmente las esquinas del fondo blanco */
+  text-decoration: none;     /* Quita la línea subrayada que traen los enlaces por defecto */
+  font-weight: bold;         /* Hace que la letra se vea más gruesa (negrita) */
+}
+
+.header-brand h1 {
+  font-size: 2.5rem;         /* Define un tamaño de letra grande para las siglas principales "FII" */
+  letter-spacing: 2px;       /* Añade un espacio extra de 2 píxeles entre cada letra para darle un estilo moderno */
+}
+
+.header-brand p {
+  font-size: 1.1rem;         /* Establece el tamaño de letra para el subtítulo "Facultad de Ingeniería Industrial" */
+  text-transform: uppercase; /* Convierte automáticamente todo este texto a letras MAYÚSCULAS */
+  color: #d4af37;            /* Aplica el color dorado institucional al subtítulo */
+}
+
+/* Contenedor Principal */
+.content-container {
+  max-width: 900px;          /* Limita el ancho máximo que puede tener el contenido a 900 píxeles para que no se estire demasiado */
+  margin: 40px auto;         /* Centra el contenedor en la pantalla (auto a los lados) y le da 40px de espacio arriba y abajo */
+  padding: 0 20px;           /* Añade un colchón de 20px a los lados para que el contenido no choque con los bordes en celulares */
+}
+
+.info-section {
+  background: white;         /* Hace que el fondo de cada tarjeta o sección sea de color blanco puro */
+  padding: 25px;             /* Añade 25 píxeles de espacio interno para alejar el texto de los bordes de la caja */
+  margin-bottom: 25px;       /* Crea una separación externa hacia abajo para distanciar una caja de la siguiente */
+  border-radius: 8px;        /* Redondea las cuatro esquinas de la caja blanca para que se vea moderna y suave */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05); /* Agrega una sombra muy ligera y sutil abajo para darle profundidad */
+}
+
+.info-section h2 {
+  color: #003366;            /* Pone los títulos de las secciones ("MISIÓN", "VISIÓN") en azul oscuro */
+  margin-bottom: 12px;       /* Añade espacio abajo del título para separarlo del párrafo que viene después */
+  border-left: 5px solid #d4af37; /* Crea la columna o barra vertical dorada de 5px de grosor a la izquierda del título */
+  padding-left: 10px;        /* Desplaza el texto del título 10px a la derecha para que no toque la barra dorada */
+  text-transform: uppercase; /* Convierte los títulos automáticamente a letras MAYÚSCULAS */
+  font-size: 1.4rem;         /* Define el tamaño de letra para el título de las secciones */
+}
+
+/* Lista de Escuelas */
+.schools-list {
+  list-style-position: inside; /* Mueve los puntitos de la lista hacia adentro para que queden alineados con el texto */
+  padding-left: 10px;        /* Añade una ligera sangría a toda la lista hacia la derecha */
+}
+
+.schools-list li {
+  margin-bottom: 8px;       /* Separa cada uno de los elementos de la lista hacia abajo para que no queden amontonados */
+  font-weight: 500;          /* Le da un grosor intermedio a la letra de la lista (semi-negrita) */
+  color: #444;               /* Pone el texto de la lista en un gris un poco más oscuro que el párrafo común */
+}
+
+/* Pie de Página */
+.main-footer {
+  background-color: #222;    /* Aplica un color gris oscuro casi negro al fondo del pie de página */
+  color: #bbb;               /* Pone las letras en un gris claro para que contrasten bien y no lastimen la vista */
+  text-align: center;        /* Centra de manera horizontal todos los textos y elementos que estén dentro */
+  padding: 30px 20px;        /* Añade 30px de espacio arriba/abajo y 20px a los lados dentro del pie de página */
+  margin-top: 50px;          /* Separa el pie de página del contenido de arriba para que no se peguen */
+  font-size: 0.9rem;         /* Reduce un poco el tamaño de la tipografía para los créditos */
+}
+
+.download-btn {
+  display: inline-block;     /* Permite aplicar márgenes y paddings a este enlace como si fuera una caja de bloque */
+  margin-top: 15px;          /* Separa el botón hacia abajo del texto de derechos de autor */
+  color: white;              /* Pone el texto del botón en color blanco */
+  background-color: #d4af37; /* Pinta el fondo del botón con el color dorado institucional */
+  padding: 10px 20px;        /* Le da volumen al botón añadiendo 10px de espacio arriba/abajo y 20px a los lados */
+  text-decoration: none;     /* Elimina el subrayado de texto clásico de los enlaces */
+  border-radius: 5px;        /* Redondea las esquinas del botón */
+  font-weight: bold;         /* Hace que la letra del botón sea gruesa y llamativa */
+  transition: background 0.3s; /* Suaviza la transición de color cuando pasas el cursor del ratón sobre él */
+}
+
+.download-btn:hover {
+  background-color: #b5922e; /* Cambia el botón a un dorado más oscuro cuando pones el cursor encima (efecto visual) */
+}
+
+
+
+
+/* --- DISEÑO DE TRES COLUMNAS CORREGIDO (FOTO - TEXTO - FOTO) --- */
+
+/* Configuración para pantallas de computadora */
+@media (min-width: 1024px) {
+  .page-layout {
+    display: grid;            /* Forzamos el uso de rejilla */
+    /* Creamos 3 columnas perfectas: Foto (1 parte), Texto (2 partes para que sea más ancho) y Foto (1 parte) */
+    grid-template-columns: 1fr 2fr 1fr; 
+    max-width: 1440px;        /* Espacio suficiente en el monitor para los tres bloques */
+    margin: 40px auto;        /* Centra todo el bloque en la pantalla */
+    gap: 25px;                /* Separación limpia entre cada una de las columnas */
+    padding: 0 20px;
+    align-items: stretch;     /* Obliga a que tanto fotos como textos midan lo mismo de alto */
+  }
+
+  /* Ubicamos el texto obligatoriamente en la columna del CENTRO (columna 2) */
+  .column-text {
+    grid-column: 2;
+  }
+
+  /* Ubicamos la primera foto obligatoriamente en la IZQUIERDA (columna 1) */
+  .left-image {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  /* Ubicamos la segunda foto obligatoriamente en la DERECHA (columna 3) */
+  .right-image {
+    grid-column: 3;
+    grid-row: 1;
+  }
+
+  /* Estilos para las cajas de las imágenes */
+  .column-image {
+    display: flex;
+    height: 100%;             /* Hace que la caja mida el mismo alto que tus 3 tarjetas de texto unidas */
+  }
+
+  .column-image img {
+    width: 100%;              /* Ajusta la foto al ancho de su columna */
+    height: 100%;             /* Estira la foto para cubrir todo el alto de la sección */
+    object-fit: cover;        /* Recorta proporcionalmente la foto para que no se vea aplastada ni estirada */
+    border-radius: 8px;       /* Bordes redondeados profesionales */
+    border: 1px solid #e1e6eb;/* Contorno nítido */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12); /* Sombra definida idéntica a tus cajas de texto */
+  }
+}
+
+/* Ajustes para celulares y pantallas pequeñas (se apilan verticalmente para que no se vea amontonado) */
+@media (max-width: 1023px) {
+  .page-layout {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;   /* Se pone uno abajo del otro en pantallas chicas */
+    gap: 20px;
+  }
+  
+  .column-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  }
+}
+
+
+
+
+
+/* --- NUEVA BARRA DE NAVEGACIÓN AZUL --- */
+
+.navbar {
+  background-color: #0b50a2; /* El color azul de la barra de navegación de tu imagen */
+  display: flex;             /* Alinea el menú de enlaces y el buscador de forma horizontal */
+  justify-content: space-between; /* Empuja los enlaces a la izquierda y el buscador a la derecha */
+  align-items: center;       /* Centra verticalmente los elementos dentro de la barra */
+  margin-top: 15px;          /* Separa la barra del título de la facultad de arriba */
+  padding: 0 15px;           /* Colchón de espacio a los extremos de la barra */
+  border-radius: 4px;        /* Suaviza las esquinas exteriores de la barra */
+  overflow: hidden;          /* Asegura que los efectos visuales no se salgan de las esquinas */
+}
+
+/* Contenedor de los enlaces */
+.nav-links {
+  display: flex;             /* Coloca cada opción del menú una al costado de la otra */
+}
+
+/* Cada botón o enlace individual del menú */
+.nav-item {
+  color: white;              /* Letras de color blanco */
+  text-decoration: none;     /* Quita el subrayado por defecto de los enlaces */
+  padding: 12px 16px;        /* Espacio interno para que los botones sean grandes y fáciles de cliquear */
+  font-size: 0.9rem;         /* Tamaño de letra adecuado e idéntico a tu ejemplo */
+  font-weight: 500;          /* Grosor medio para que resalte la tipografía */
+  border-right: 1px solid rgba(255, 255, 255, 0.15); /* Crea la pequeña línea divisoria vertical entre botones */
+  transition: background 0.2s; /* Suaviza la animación del cambio de color de fondo */
+}
+
+/* El primer botón del menú (Inicio) necesita un borde a la izquierda para cerrar el diseño */
+.nav-item:first-child {
+  border-left: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+/* Efecto visual: Cambia el fondo a un azul un poco más oscuro cuando pasas el cursor encima */
+.nav-item:hover {
+  background-color: #083d7c; 
+}
+
+/* Pequeño ajuste para las flechitas hacia abajo (▼) en los menús desplegables */
+.nav-item span {
+  font-size: 0.65rem;
+  margin-left: 4px;
+  vertical-align: middle;
+}
+
+/* --- BLOQUE DEL BUSCADOR (DERECHA) --- */
+.nav-search {
+  display: flex;             /* Une el campo de texto y la lupa en una sola pieza */
+  background-color: #083d7c; /* Fondo más oscuro para el cuadro de búsqueda como en tu imagen */
+  border: 1px solid rgba(255, 255, 255, 0.2); /* Borde sutil transparente */
+  border-radius: 4px;        /* Redondea las esquinas del buscador */
+  padding: 4px 8px;          /* Espacio interior */
+}
+
+.nav-search input {
+  background: transparent;   /* Quita el fondo blanco clásico del input */
+  border: none;              /* Elimina las líneas de contorno por defecto */
+  color: white;              /* Hace que lo que escribas sea de color blanco */
+  outline: none;             /* Elimina el borde molesto que se activa al hacer clic */
+  font-size: 0.85rem;
+  width: 140px;              /* Ancho controlado para que no ocupe demasiado espacio */
+}
+
+/* Cambia el color del texto de sugerencia ("Buscar...") a gris claro */
+.nav-search input::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.nav-search button {
+  background: transparent;   /* Quita el botón gris por defecto del navegador */
+  border: none;              /* Elimina bordes */
+  color: white;              /* Asegura el color del icono de la lupa */
+  cursor: pointer;           /* Cambia el cursor a una mano al posicionarse encima */
+  font-size: 0.9rem;
+}

@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mercado Free!</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <div class="page">
+      <header class="header">
+        <div class="logo-box">LOGO</div>
+        <div class="brand">Mercado Free!</div>
+        <div class="header-right">
+          <input
+            id="search-input"
+            class="search-bar"
+            type="text"
+            placeholder="Buscar..."
+          />
+          <div class="icons">
+            <a href="cart.html">
+              <i class="fa-solid fa-cart-shopping"></i>
+              <span id="cart-badge" class="cart-badge">0</span>
+            </a>
+            <a href="user.html"><i class="fa-solid fa-user"></i></a>
+          </div>
+        </div>
+      </header>
+
+      <nav class="nav" id="nav-categories">
+        <button data-category="Todos" class="active">Todos</button>
+        <button data-category="Celulares">Celulares</button>
+        <button data-category="Computación">Computación</button>
+        <button data-category="Audio">Audio</button>
+        <button data-category="Accesorios">Accesorios</button>
+      </nav>
+
+      <main class="products" id="products-container"></main>
+
+      <aside class="aside">
+        <h3>Recomendados</h3>
+        <div class="rec-item">
+          <div class="thumb">
+            <img
+              src="https://rimage.ripley.com.pe/home.ripley/Attachment/WOP/1/2004306270608/full_image-2004306270608.jpg"
+              alt=""
+            />
+          </div>
+          <div>Notebook HP 15 <br /><strong>$268.999</strong></div>
+        </div>
+        <div class="rec-item">
+          <div class="thumb">
+            <img
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQUDfnua71HRu56uCLiZ1Yx8bNrhiR5tNbi3Ez9wcldiw&s=10"
+              alt=""
+            />
+          </div>
+          <div>Monitor Samsung 24" <br /><strong>$59.900</strong></div>
+        </div>
+        <div class="rec-item">
+          <div class="thumb">
+            <img
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTQz6kCN7gQOiYSGgo5x9i8Qk4SCuSNiu_57kOALz5yJA&s=10"
+              alt=""
+            />
+          </div>
+          <div>CPU AMD A10 <br /><strong>$213.900</strong></div>
+        </div>
+        <div class="rec-item">
+          <div class="thumb">
+            <img
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTMnt5wa3lEkPBGmRPAGqHNKnUuU4d0W68piyDPv--vlA&s=10"
+              alt=""
+            />
+          </div>
+          <div>Auricular Gamer <br /><strong>$12.900</strong></div>
+        </div>
+      </aside>
+
+      <footer class="footer">
+        © 2026 - Desarrollado por Grupo "Unstable Unicorns"
+      </footer>
+    </div>
+
+    <script src="scripts/script.js"></script>
+    <script>
+      let currentCategory = "Todos";
+      const container = document.getElementById("products-container");
+      const searchInput = document.getElementById("search-input");
+      const navButtons = document.querySelectorAll("#nav-categories button");
+
+      function renderProducts() {
+        const term = searchInput.value.trim().toLowerCase();
+
+        const filtered = PRODUCTS.filter((p) => {
+          const matchesCategory =
+            currentCategory === "Todos" || p.category === currentCategory;
+          const matchesSearch = p.name.toLowerCase().includes(term);
+          return matchesCategory && matchesSearch;
+        });
+
+        if (filtered.length === 0) {
+          container.innerHTML = `<div class="no-results">No se encontraron productos.</div>`;
+          return;
+        }
+
+        container.innerHTML = filtered
+          .map((p) => {
+            const qty = getQty(p.id);
+            return `
+      <div class="card">
+        <img src="${p.img}" alt="${p.name}">
+        <div class="price">${formatPrice(p.price)}</div>
+        <div class="name">${p.name}</div>
+        <div class="shipping">Envío gratis mañana</div>
+        ${
+          qty === 0
+            ? `<button class="add-btn" data-id="${p.id}">Agregar al carrito</button>`
+            : `<div class="qty-control">
+               <button class="qty-btn minus" data-id="${p.id}">−</button>
+               <span class="qty-value">${qty}</span>
+               <button class="qty-btn plus" data-id="${p.id}">+</button>
+             </div>`
+        }
+      </div>`;
+          })
+          .join("");
+
+        container.querySelectorAll(".add-btn").forEach((btn) => {
+          btn.addEventListener("click", () => {
+            increaseQty(Number(btn.dataset.id));
+            renderProducts();
+          });
+        });
+        container.querySelectorAll(".qty-btn.plus").forEach((btn) => {
+          btn.addEventListener("click", () => {
+            increaseQty(Number(btn.dataset.id));
+            renderProducts();
+          });
+        });
+        container.querySelectorAll(".qty-btn.minus").forEach((btn) => {
+          btn.addEventListener("click", () => {
+            decreaseQty(Number(btn.dataset.id));
+            renderProducts();
+          });
+        });
+      }
+
+      navButtons.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          currentCategory = btn.dataset.category;
+          navButtons.forEach((b) => b.classList.remove("active"));
+          btn.classList.add("active");
+          renderProducts();
+        });
+      });
+
+      searchInput.addEventListener("input", renderProducts);
+
+      renderProducts();
+    </script>
+  </body>
+</html>

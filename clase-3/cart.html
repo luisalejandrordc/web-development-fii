@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Carrito - Mercado Free!</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <div class="simple-page">
+      <a class="back-link" href="index.html"
+        ><i class="fa-solid fa-arrow-left"></i> Volver a la tienda</a
+      >
+
+      <div class="simple-card">
+        <h2>Mi carrito</h2>
+        <div id="cart-items"></div>
+        <div id="cart-total" class="cart-total" style="display: none">
+          <span>Total</span>
+          <span id="cart-total-value"></span>
+        </div>
+      </div>
+    </div>
+
+    <script src="scripts/script.js"></script>
+    <script>
+      function renderCart() {
+        const cart = getCart();
+        const itemsContainer = document.getElementById("cart-items");
+        const totalBox = document.getElementById("cart-total");
+        const totalValue = document.getElementById("cart-total-value");
+
+        const ids = Object.keys(cart).map(Number);
+
+        if (ids.length === 0) {
+          itemsContainer.innerHTML = `<div class="empty-cart">Tu carrito está vacío.</div>`;
+          totalBox.style.display = "none";
+          return;
+        }
+
+        const items = PRODUCTS.filter((p) => ids.includes(p.id));
+
+        itemsContainer.innerHTML = items
+          .map((p) => {
+            const qty = cart[p.id];
+            return `
+      <div class="cart-item">
+        <img src="${p.img}" alt="${p.name}">
+        <div>
+          <div>${p.name}</div>
+          <div class="cart-item-price">${formatPrice(p.price)} c/u</div>
+        </div>
+        <div class="qty-control">
+          <button class="qty-btn minus" data-id="${p.id}">−</button>
+          <span class="qty-value">${qty}</span>
+          <button class="qty-btn plus" data-id="${p.id}">+</button>
+        </div>
+        <div class="cart-item-subtotal">${formatPrice(p.price * qty)}</div>
+        <button class="remove-btn" data-id="${p.id}">Quitar</button>
+      </div>`;
+          })
+          .join("");
+
+        itemsContainer.querySelectorAll(".remove-btn").forEach((btn) => {
+          btn.addEventListener("click", () => {
+            removeFromCart(Number(btn.dataset.id));
+            renderCart();
+          });
+        });
+        itemsContainer.querySelectorAll(".qty-btn.plus").forEach((btn) => {
+          btn.addEventListener("click", () => {
+            increaseQty(Number(btn.dataset.id));
+            renderCart();
+          });
+        });
+        itemsContainer.querySelectorAll(".qty-btn.minus").forEach((btn) => {
+          btn.addEventListener("click", () => {
+            decreaseQty(Number(btn.dataset.id));
+            renderCart();
+          });
+        });
+
+        const total = items.reduce((sum, p) => sum + p.price * cart[p.id], 0);
+        totalValue.textContent = formatPrice(total);
+        totalBox.style.display = "flex";
+      }
+
+      renderCart();
+    </script>
+  </body>
+</html>

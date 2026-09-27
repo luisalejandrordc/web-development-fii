@@ -1,0 +1,33 @@
+body {
+  font-family: sans-serif;
+  background-color: #d8f3dc;
+  max-width: 1000px;
+  margin: auto;
+}
+
+.title {
+  color: #1b4332;
+  font-size: 40px;
+  font-weight: 800;
+  text-align: center;
+}
+
+nav {
+  width: 100%;
+  margin: auto;
+}
+
+a {
+  text-decoration: none;
+  padding: 15px;
+  margin: 20px;
+  background-color: #52b788;
+  color: white;
+  border-radius: 10px;
+}
+
+.subtitle {
+  text-align: center;
+  padding: 20px;
+  color: #2d6a4f;
+}

@@ -1,0 +1,113 @@
+/* Configuración General */
+* {
+  margin: 0;                /* Elimina los márgenes externos que los navegadores ponen por defecto */
+  padding: 0;               /* Elimina el espacio interno que los navegadores ponen por defecto */
+  box-sizing: border-box;   /* Hace que el tamaño total del elemento incluya el padding y el borde, evitando que se deforme */
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Define la tipografía de la página; usa las siguientes si la primera no existe */
+  background-color: #f4f6f9; /* Aplica un color gris claro muy suave de fondo para descansar la vista */
+  color: #333;               /* Establece un color gris oscuro casi negro para todo el texto principal */
+  line-height: 1.6;          /* Ajusta la separación o espacio vertical entre líneas de texto para mejorar la lectura */
+}
+
+/* Encabezado */
+.main-header {
+  background-color: #003366; /* Aplica el color azul oscuro académico al fondo del encabezado */
+  color: white;              /* Hace que todos los textos dentro del encabezado sean de color blanco */
+  padding: 20px;             /* Añade 20 píxeles de espacio interno alrededor de todo el contenido del encabezado */
+}
+
+.header-top {
+  display: flex;             /* Activa el modo de caja flexible para alinear sus elementos hijos en una fila */
+  justify-content: space-between; /* Empuja el texto a la izquierda y el enlace de Facebook a la derecha, dejando espacio al centro */
+  font-size: 0.85rem;        /* Reduce un poco el tamaño de la letra para esta barra superior secundaria */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2); /* Dibuja una línea divisoria blanca muy delgada y semitransparente abajo */
+  padding-bottom: 10px;      /* Añade espacio entre el texto y la línea blanca que acabamos de crear */
+  margin-bottom: 15px;       /* Añade una separación externa abajo para alejarse del título principal (FII) */
+}
+
+.fb-link {
+  color: #3b5998;            /* Pone el texto del enlace de color azul característico de Facebook */
+  background: white;         /* Coloca un fondo blanco detrás del texto para que parezca un botón o etiqueta */
+  padding: 2px 8px;          /* Añade 2px de espacio arriba/abajo y 8px a los lados para darle forma al fondo */
+  border-radius: 4px;        /* Redondea sutilmente las esquinas del fondo blanco */
+  text-decoration: none;     /* Quita la línea subrayada que traen los enlaces por defecto */
+  font-weight: bold;         /* Hace que la letra se vea más gruesa (negrita) */
+}
+
+.header-brand h1 {
+  font-size: 2.5rem;         /* Define un tamaño de letra grande para las siglas principales "FII" */
+  letter-spacing: 2px;       /* Añade un espacio extra de 2 píxeles entre cada letra para darle un estilo moderno */
+}
+
+.header-brand p {
+  font-size: 1.1rem;         /* Establece el tamaño de letra para el subtítulo "Facultad de Ingeniería Industrial" */
+  text-transform: uppercase; /* Convierte automáticamente todo este texto a letras MAYÚSCULAS */
+  color: #d4af37;            /* Aplica el color dorado institucional al subtítulo */
+}
+
+/* Contenedor Principal */
+.content-container {
+  max-width: 900px;          /* Limita el ancho máximo que puede tener el contenido a 900 píxeles para que no se estire demasiado */
+  margin: 40px auto;         /* Centra el contenedor en la pantalla (auto a los lados) y le da 40px de espacio arriba y abajo */
+  padding: 0 20px;           /* Añade un colchón de 20px a los lados para que el contenido no choque con los bordes en celulares */
+}
+
+.info-section {
+  background: white;         /* Hace que el fondo de cada tarjeta o sección sea de color blanco puro */
+  padding: 25px;             /* Añade 25 píxeles de espacio interno para alejar el texto de los bordes de la caja */
+  margin-bottom: 25px;       /* Crea una separación externa hacia abajo para distanciar una caja de la siguiente */
+  border-radius: 8px;        /* Redondea las cuatro esquinas de la caja blanca para que se vea moderna y suave */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05); /* Agrega una sombra muy ligera y sutil abajo para darle profundidad */
+}
+
+.info-section h2 {
+  color: #003366;            /* Pone los títulos de las secciones ("MISIÓN", "VISIÓN") en azul oscuro */
+  margin-bottom: 12px;       /* Añade espacio abajo del título para separarlo del párrafo que viene después */
+  border-left: 5px solid #d4af37; /* Crea la columna o barra vertical dorada de 5px de grosor a la izquierda del título */
+  padding-left: 10px;        /* Desplaza el texto del título 10px a la derecha para que no toque la barra dorada */
+  text-transform: uppercase; /* Convierte los títulos automáticamente a letras MAYÚSCULAS */
+  font-size: 1.4rem;         /* Define el tamaño de letra para el título de las secciones */
+}
+
+/* Lista de Escuelas */
+.schools-list {
+  list-style-position: inside; /* Mueve los puntitos de la lista hacia adentro para que queden alineados con el texto */
+  padding-left: 10px;        /* Añade una ligera sangría a toda la lista hacia la derecha */
+}
+
+.schools-list li {
+  margin-bottom: 8px;       /* Separa cada uno de los elementos de la lista hacia abajo para que no queden amontonados */
+  font-weight: 500;          /* Le da un grosor intermedio a la letra de la lista (semi-negrita) */
+  color: #444;               /* Pone el texto de la lista en un gris un poco más oscuro que el párrafo común */
+}
+
+/* Pie de Página */
+.main-footer {
+  background-color: #222;    /* Aplica un color gris oscuro casi negro al fondo del pie de página */
+  color: #bbb;               /* Pone las letras en un gris claro para que contrasten bien y no lastimen la vista */
+  text-align: center;        /* Centra de manera horizontal todos los textos y elementos que estén dentro */
+  padding: 30px 20px;        /* Añade 30px de espacio arriba/abajo y 20px a los lados dentro del pie de página */
+  margin-top: 50px;          /* Separa el pie de página del contenido de arriba para que no se peguen */
+  font-size: 0.9rem;         /* Reduce un poco el tamaño de la tipografía para los créditos */
+}
+
+.download-btn {
+  display: inline-block;     /* Permite aplicar márgenes y paddings a este enlace como si fuera una caja de bloque */
+  margin-top: 15px;          /* Separa el botón hacia abajo del texto de derechos de autor */
+  color: white;              /* Pone el texto del botón en color blanco */
+  background-color: #d4af37; /* Pinta el fondo del botón con el color dorado institucional */
+  padding: 10px 20px;        /* Le da volumen al botón añadiendo 10px de espacio arriba/abajo y 20px a los lados */
+  text-decoration: none;     /* Elimina el subrayado de texto clásico de los enlaces */
+  border-radius: 5px;        /* Redondea las esquinas del botón */
+  font-weight: bold;         /* Hace que la letra del botón sea gruesa y llamativa */
+  transition: background 0.3s; /* Suaviza la transición de color cuando pasas el cursor del ratón sobre él */
+}
+
+.download-btn:hover {
+  background-color: #b5922e; /* Cambia el botón a un dorado más oscuro cuando pones el cursor encima (efecto visual) */
+}
+
+
